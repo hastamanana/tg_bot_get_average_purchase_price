@@ -1,0 +1,88 @@
+[tool.poetry]
+name = "cca-bot"
+version = "0.1.0"
+description = "Телеграм-бот для нахождения средней цены покупки актива"
+authors = ["Shoxrux Yuldashov <deagleshox@mail.ru>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiogram = "^3.19.0"
+python-dotenv = "^1.1.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+isort = "^5.13.2"
+flake8 = "^7.1.1"
+flake8-pyproject = "^1.2.3"
+mypy = "^1.11.2"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.2"
+faker = "^28.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.flake8]
+max-line-length = 79
+max-complexity = 6
+count = true
+per-file-ignores = [
+    "__init__.py:F401,F403",
+    "**/settings.py:E501"
+]
+extend-ignore = [
+    "E203",
+    "E231",
+    "E241",
+    "W503",
+    "F811",
+    "R503",
+    "R504",
+    "R505"
+]
+exclude = [
+    ".git/",
+    "__pycache__/",
+    "env/",
+    "venv/",
+    ".env/",
+    ".venv/",
+    "tests/",
+    ".pytest_cache",
+    ".vscode/",
+    ".idea/"
+]
+
+[tool.black]
+line-length = 79
+target-version = ['py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | __pycache__
+  | \.pytest_cache
+  | \.vscode
+  | \.idea
+  | venv
+  | env
+  | \.venv
+  | \.env
+  | migrations
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 79
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+known_local_folder = [
+    "utils",
+]
