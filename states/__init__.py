@@ -1,3 +1,3 @@
-from .base import *
+from .purchases import *
 
 __all__ = ["AddPurchase"]
