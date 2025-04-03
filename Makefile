@@ -35,4 +35,4 @@ clean:
 	@echo "Cleaned up temporary files."
 
 project_tree:
-	tree -a -I ".venv|.git|.vscode|.idea|node_modules|__pycache__"
+	tree -a -I ".venv|.git|.vscode|.idea|node_modules|__pycache__|.DS_Store"
